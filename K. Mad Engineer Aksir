@@ -1,0 +1,110 @@
+/*Can you imagine? Mad Engineer Aksir finally got the job. His job is to set up toggle switch for a series of electric bulbs which are numbered from 1 to N. He finally did the work in some peculiar manner that is, for a switch it toggles all the bulbs from L to R.
+More formally suppose, a switch toggles the bulbs from 2 to 6 it means the switch will check each bulb numbered from 2 to 6 and will make it ON if it is OFF now and make it OFF if it is ON now.
+
+Now you have something to do. For your kind information initially the all the bulbs are OFF and represent with 0. That is 1 represent ON and 0 represent OFF. You have to tell whether the bulb is ON or OFF for each bulb.
+
+Input
+Input starts with N and Q representing the number of bulbs and the number of the switch. In the next Q lines, there will be given Li, Ri Representing it will toggle all the bulbs from Li to Ri, If ith switch is pressed.
+
+constraints:
+1 <= N, Q <= 100000
+1 <= L <= R <= N
+
+Output
+Print N integer (0 or 1) denoting that ith switch is ON or OFF.
+
+Don’t print any extra space.
+
+Sample
+Input	Output
+5 3
+1 5
+1 3
+3 5
+0 0 1 0 0
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+int sc1() {int x; scanf("%d", &x); return x;}
+long long sc2() {long long x; scanf("%lld", &x); return x;}
+
+void outsps(int x){printf("%d ", x);}
+void lloutsps(long long x){printf("%lld ", x);}
+
+#define  gcd(a,b)         __gcd(a,b)
+#define  lcm(a,b)         (a*b)/gcd(a,b)
+#define  Int              sc1()
+#define  LL               sc2()
+#define  For(n)           for(int i=0;i<n;i++)
+#define  Forj(n)          for(int j=0;j<n;j++)
+#define  Fork(n)          for(int k=0;k<n;k++)
+#define  For1(n)          for(int i=1;i<=n;i++)
+#define  ll               long long
+#define  vi               std::vector<int>
+#define  vll              std::vector<ll>
+#define  qui              qu
+#define  pb               push_back
+#define  mpsi             std::map<string, int>
+#define  nl               printf("\n");
+
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)1e18 + 5;
+const int N             = 2e6 + 5;
+
+inline int add(int a, int b) {a += b; return a >= mod ? a - mod : a;}
+inline int sub(int a, int b) {a -= b; return a < 0 ? a + mod : a;}
+inline int mul(int a, int b) {return (ll)a * b % mod;}
+
+
+ int siv[N];
+
+ int a[N],b[N];
+
+int solve() {
+
+    int a=Int,b=Int;
+
+    while(b--)
+    {
+    	int l=Int,r=Int;
+    	siv[l]++;
+    	siv[r+1]--;
+    }
+    for(int i=1; i<=a;i++)
+    {
+    	siv[i]+=siv[i-1];
+    	if(siv[i]%2)
+    		outsps(1);
+    	else outsps(0);
+    }
+    nl;
+
+    return 0;
+}
+
+
+
+
+int main()
+{
+    //freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+
+    int test = 1, tc = 0;
+    //scanf("%d", &test); 
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+
+    return 0;
+
+
+
+
+}
