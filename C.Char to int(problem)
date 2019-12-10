@@ -1,0 +1,159 @@
+/*Given the N integers, you have to find the maximum GCD (greatest common divisor) of every possible
+pair of these integers.
+Input
+The first line of input is an integer N (1 < N < 100) that determines the number of test cases.
+The following N lines are the N test cases. Each test case contains M (1 < M < 100) positive
+integers that you have to find the maximum of GCD.
+Output
+For each test case show the maximum GCD of every possible pair.
+Sample Input
+3
+10 20 30 40
+7 5 12
+125 15 25
+Sample Output
+20
+1
+25*/
+
+#include<bits/stdc++.h>
+#include <utility>
+using namespace std;
+ 
+ 
+ 
+int sc1() {int x; scanf("%d", &x); return x;}
+ 
+long long sc2() {long long x; scanf("%lld", &x); return x;}
+ 
+ 
+ 
+#define  gcd(a,b)         __gcd(a,b)
+#define  lcm(a,b)         (a*b)/gcd(a,b)
+#define  Int              sc1()
+#define  LL               sc2()
+#define  For(n)           for(int i=0;i<n;i++)
+#define  Forj(n)          for(int j=0;j<n;j++)
+#define  Fork(n)          for(int k=0;k<n;k++)
+#define  For1(n)          for(int i=1;i<=n;i++)
+#define  ll               long long
+#define  vi               std::vector<int>
+#define  vll              std::vector<ll>
+#define  qui              qu
+#define  pb               push_back
+#define  mpsi             std::map<string, int>
+#define  nl				  printf("\n");
+ 
+ 
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)1e18 + 5;
+const int N             = 1e6 + 5;
+ 
+inline int add(int a, int b) {a += b; return a >= mod ? a - mod : a;}
+inline int sub(int a, int b) {a -= b; return a < 0 ? a + mod : a;}
+inline int mul(int a, int b) {return (ll)a * b % mod;}
+ 
+ 
+ int vis[N],a[N],b1[N];
+
+ int makeInt(string b,int c)
+ {
+ 	int x =0;
+ 	for(int i=0; i<c; i++)
+ 	{
+ 		if(b[i]=='0')
+ 			x = 10*x+0;
+ 		else if(b[i]=='1')
+ 			x = 10*x+1;
+ 		else if(b[i]=='2')
+ 			x = 10*x+2;
+ 		else if(b[i]=='3')
+ 			x = 10*x+3;
+ 		else if(b[i]=='4')
+ 			x = 10*x+4;
+ 		else if(b[i]=='5')
+ 			x = 10*x+5;
+ 		else if(b[i]=='6')
+ 			x = 10*x+6;
+ 		else if(b[i]=='7')
+ 			x = 10*x+7;
+ 		else if(b[i]=='8')
+ 			x = 10*x+8;
+ 		else if(b[i]=='9')
+ 			x = 10*x+9;
+ 	}
+ 	return x;
+ }
+ 
+ unsigned long long c=0;
+ //char b[1000];
+ 
+int solve() {
+ 	char a[1000],b[1000];
+	//scanf("%[^\n]%*c", a); 
+	gets(a);
+	unsigned long long x = strlen(a);
+	unsigned long long i=0,ar[1000],c1=0;
+	while(i<=x)
+	{
+		if(a[i]!=' '&&i!=x)
+		{
+			b[c]= a[i];
+			c++;
+		}
+		else
+		{
+			int z2 = makeInt(b,c);
+			ar[c1++]=z2;
+			//cout<<"ar:"<<z2<<endl;
+			c=0;
+		}
+		//cout<<x;
+		i++;
+	}
+	sort(ar,ar+c1);
+	for(int i=0; i<c1;i++)
+	{
+		//cout<<ar[i]<<endl;;
+	}
+	unsigned long long p=0,q=c1,G1=1;
+	for(int i=0; i<q-1;i++)
+	{
+		for(int j=i+1; j<q;j++)
+		{
+			if(ar[i]!=0){
+			unsigned long long G = gcd(ar[i], ar[j]);
+			G1 = max(G,G1);
+			//cout<<G<<endl;
+		}
+		}
+	}
+	cout<<G1<<endl;
+
+	return 0;
+}
+ 
+
+ 
+ 
+int main()
+{
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+ 
+	int test = 1, tc = 0;
+	scanf("%d", &test);
+	(void)getchar();
+	//cin >> test;
+	while (test--) {
+		//printf("Case %d: ", ++tc);
+		solve();
+	}
+ 
+	return 0;
+ 
+ 
+ 
+ 
+}
