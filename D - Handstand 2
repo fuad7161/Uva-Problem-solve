@@ -1,0 +1,44 @@
+/*
+https://atcoder.jp/contests/abc152/tasks/abc152_d
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define pb push_back
+ 
+ 
+int solve() {
+    
+    int n;
+    cin>>n;
+    int cnt[10][10]={};
+    for(int i=1;i<=n;i++){
+        int x = (to_string(i)[0]-'0');
+        int y = i%10;
+        ++cnt[x][y];
+    }
+ 
+    int s=0;
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            s+=cnt[i][j]*cnt[j][i];
+        }
+    }
+    cout<<s<<endl;
+ 
+}
+ 
+ 
+int main()
+{
+    int test = 1, tc = 0;
+    //scanf("%d", &test);
+   // (void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+    return 0;
+}
