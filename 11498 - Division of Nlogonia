@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+const int N = 1e5+5;
+
+
+int main(int argc, char const *argv[])
+{
+	int k;
+	while(scanf("%d", &k),(k)){
+		int xc,yc;
+		scanf("%d%d", &xc,&yc);
+		while(k--){
+			int xp,yp;
+			scanf("%d%d", &xp,&yp);
+			if(xc==xp||yc==yp){
+				printf("divisa\n");
+			}else {
+				if(xp>xc&&yp<yc){
+					printf("SE\n");
+				}else if(xp>xc&&yp>yc){
+					printf("NE\n");
+				}
+				else if(xp<xc&&yp>yc){
+					printf("NO\n");
+				}else if(xp<xc&&yp<yc){
+					printf("SO\n");
+				}
+			}
+		}
+	}
+
+	return 0;
+}
