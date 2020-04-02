@@ -1,0 +1,25 @@
+from array import *
+tc = int(input())
+for i in range(tc):
+    n = int(input())
+    s = [int(0) for i in range(n)]
+    x = 0
+    for i in range(n):
+        #print(i)
+        a = str(input())
+        if a == 'LEFT':
+            x -= 1
+            s[i] = -1
+        elif a == 'RIGHT':
+            x += 1
+            s[i] = 1
+        else:
+            if len(a) == 9:
+                x += s[int(a[8])-1]
+                s[i] = s[int(a[8])-1]
+            else:
+                d = int(a[8])*10+int(a[9])-1
+                x += s[d]
+                s[i] = s[d]
+        #print(s[i])
+    print(x)
