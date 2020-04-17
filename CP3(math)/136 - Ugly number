@@ -1,0 +1,62 @@
+//Author: Fuadul Hasan(fuadul202@gmail.com)
+//BSMRSTU,Gopalganj
+#include<bits/stdc++.h>
+using namespace std;int tc = 1;
+#define happy ios::sync_with_stdio(false);
+#define coding  cin.tie(0);
+#define pb  push_back
+#define mp make_pair
+#define ll long long
+#define pr pair<int, int> 
+#define vpr vector<pr> 
+#define vi std::vector<int>
+#define vll std::vector<ll>
+#define all(n) n.begin(),n.end()
+#define Unique(c) (c).resize(unique(all(c))-(c).begin())
+#define Test printf("Case %d: ",tc++);
+#define YES printf("YES\n");
+#define NO printf("NO\n");
+#define Yes printf("Yes\n");
+#define No printf("No\n");
+const int mod = 1e9 + 7;
+const ll  Inf = (ll)2e18 + 5;
+const int N   = 2e5 + 5;
+
+ll ugly(ll n){
+	ll i2=0,i3=0,i5=0,nu;
+	ll u2=2,u3=3,u5=5;
+	ll u[n+1];
+	u[0] = 1;
+	for(ll i=1;i<n;i++){
+		nu = min(u2,min(u3,u5));
+		u[i] = nu;
+		if(nu == u2){
+			i2++;
+			u2 = 2*u[i2];
+		}
+		if(nu == u3){
+			i3++;
+			u3 = 3*u[i3];
+		}
+		if(nu == u5){
+			i5++;
+			u5 = 5*u[i5];
+		}
+	}
+	return nu;
+}
+
+int solve() 
+{
+	//happy coding
+
+	ll n = 1500;
+	cout<<"The 1500'th ugly number is "<<ugly(n)<<"."<<endl;	
+
+	return 0;
+}
+int main(){
+	int test = 1;
+	//scanf("%d", &test);
+	while (test--)solve();return 0;
+}
